@@ -6,6 +6,7 @@
   "scripts": {
     "test": "make test"
   },
+  "bin": "./bin/cli.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/evangoer/scrape-markdown.git"
