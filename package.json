@@ -1,0 +1,30 @@
+{
+  "name": "scrape-markdown",
+  "version": "0.0.1",
+  "description": "A simple utility for scraping web pages and returning the results in Markdown.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evangoer/scrape-markdown.git"
+  },
+  "keywords": [
+    "scrape",
+    "scraping",
+    "html",
+    "markdown",
+    "jsdom",
+    "css",
+    "selectors"
+  ],
+  "author": "Evan Goer",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "aa53950c4a26bd484dbee5afe9f4d55eab7d31b0",
+  "dependencies": {
+    "optimist": "~0.6.0",
+    "jsdom": "~0.8.10"
+  }
+}
