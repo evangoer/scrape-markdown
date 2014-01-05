@@ -26,6 +26,7 @@
   "gitHead": "aa53950c4a26bd484dbee5afe9f4d55eab7d31b0",
   "dependencies": {
     "optimist": "~0.6.0",
-    "jsdom": "~0.8.10"
+    "jsdom": "~0.8.10",
+    "html-md": "~3.0.2"
   }
 }
