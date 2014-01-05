@@ -13,4 +13,4 @@ if (argv._.length === 0) {
     process.exit(1);
 }
 
-console.log(scrape(argv));
+scrape(argv);
