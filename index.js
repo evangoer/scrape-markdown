@@ -12,19 +12,24 @@ function toHTML(win) {
 
 function toMarkdown(error, win) {
     if (error) {
-        console.error('ERROR: Cannot process HTML for URL ' + win.location);
+        console.error('ERROR: Cannot process HTML' + (config.fromURL || ''));
         console.error(error);
     } else {
         console.log(md(toHTML(win)));
     }
 }
 
-function scrape(argv) {
+function scrape(argv, html) {
     config.selector = argv.selector || 'body';
-    config.urls = argv._;
-    config.urls.forEach(function (url) {
-        jsdom.env(url, toMarkdown);
-    });
+
+    if (html) {
+        jsdom.env(html, toMarkdown);
+    } else {
+        argv._.forEach(function (url) {
+            config.fromURL = ' from ' + url;
+            jsdom.env(url, toMarkdown);
+        });
+    }
 }
 
 exports.scrape = scrape;

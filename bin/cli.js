@@ -7,10 +7,28 @@ var scrape = require('../index.js').scrape,
             .describe('s', 'Scrape HTML from each page using this selector')
             .argv;
 
-if (argv._.length === 0) {
-    console.log('No HTML to scrape! Please supply a URL.\n');
-    optimist.showHelp();
-    process.exit(1);
+
+function readStdin() {
+    var data = '';
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+
+    process.stdin.on('data', function (chunk) {
+        data += chunk;
+    });
+
+    process.stdin.on('end', function () {
+        if (data === '') {
+            console.log('Please supply some URLs or pipe HTML to stdin.\n');
+            optimist.showHelp();
+            process.exit(1);
+        }
+        scrape(argv, data);
+    });
 }
 
-scrape(argv);
+if (argv._.length === 0) {
+    readStdin();
+} else {
+    scrape(argv);
+}
