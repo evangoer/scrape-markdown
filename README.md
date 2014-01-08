@@ -12,9 +12,9 @@ Install using npm:
 
     scrape-markdown -h -s [selector] [url|file|html]...
 
-*scrape-markdown* accepts one or more URLs, filepaths, or HTML strings.
-If you supply an HTML string, *scrape-markdown* converts the data to Markdown directly. 
-If you supply a URL or filepath, *scrape-markdown* attempts to fetch the contents first.
+**scrape-markdown** accepts one or more URLs, filepaths, or HTML strings.
+If you supply an HTML string, **scrape-markdown** converts the data to Markdown directly. 
+If you supply a URL or filepath, **scrape-markdown** attempts to fetch the contents first.
 
 ### -h, --help
 
@@ -27,9 +27,9 @@ This extracts all nodes on the page using `querySelectorAll`
 and concatenates the `innerHTML` from each matching node.
 The default selector is 'body'.
 
-A given call of *scrape-markdown* only accepts a single selector.
+A given call of **scrape-markdown** only accepts a single selector.
 If you need to apply different selectors to different pages,
-you should invoke *scrape-markdown* multiple times.
+you should invoke **scrape-markdown** multiple times.
 
 Depending on your selector, you might need to enclose the value in quotes.
 For example, a selector of `h1` does not require special treatment,
@@ -59,16 +59,16 @@ or
 
 or
 
-    $ cat path/to/file.html scrape-markdown --selector .warning 
+    $ cat path/to/file.html | scrape-markdown --selector .warning 
 
 ### Fetch and scrape a page using curl
 
     $ curl http://example.com | scrape-markdown --selector .content
 
-*scrape-markdown* can fetch URLs on its own, but it doesn't provide you
+**scrape-markdown** can fetch URLs on its own, but it doesn't provide you
 any fine-grained control. If you need to use retries, set HTTP headers,
-etc, you can use a more powerful utility such as *curl* or *wget* and
-pipe the output to *scrape-markdown*.
+etc, you can use a more powerful utility such as **curl** or **wget** and
+pipe the output to **scrape-markdown**.
 
 ### Get all unordered lists in a collection of local HTML files
 
