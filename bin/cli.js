@@ -2,7 +2,7 @@
 var scrape = require('../index.js').scrape,
     optimist = require('optimist'),
     argv = optimist
-            .usage('Usage: $0 -h -s [selector] [url]...')
+            .usage('Usage: $0 -h -s [selector] [url|file|html]...')
             .boolean('h')
             .alias('h', 'help')
             .describe('h', 'Display usage')
