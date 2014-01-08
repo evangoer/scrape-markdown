@@ -1,4 +1,5 @@
-var jsdom = require('jsdom'),
+var url = require('url'),
+    jsdom = require('jsdom'),
     md = require('html-md'),
     config = {};
 
@@ -19,16 +20,21 @@ function toMarkdown(error, win) {
     }
 }
 
-function scrape(argv, html) {
+function parseDOM(data) {
+    var src = url.parse(data);
+    if (src.host && src.protocol) {
+        config.fromURL = ' from ' + url.format(src);
+    }
+    jsdom.env(data, toMarkdown);
+}
+
+function scrape(argv, data) {
     config.selector = argv.selector || 'body';
 
-    if (html) {
-        jsdom.env(html, toMarkdown);
+    if (data) {
+        parseDOM(data);
     } else {
-        argv._.forEach(function (url) {
-            config.fromURL = ' from ' + url;
-            jsdom.env(url, toMarkdown);
-        });
+        argv._.forEach(parseDOM);
     }
 }
 
