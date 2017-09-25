@@ -2,12 +2,15 @@
 var scrape = require('../index.js').scrape,
     optimist = require('optimist'),
     argv = optimist
-            .usage('Usage: $0 -h -s [selector] [url|file|html]...')
+            .usage('Usage: $0 -h -s [selector] -i [url|file|html]...')
             .boolean('h')
             .alias('h', 'help')
             .describe('h', 'Display usage')
             .alias('s', 'selector')
             .describe('s', 'Scrape HTML from each page using this selector')
+            .boolean('i')
+            .alias('i', 'inline')
+            .describe('i', 'If set, anchor/image URLs are to be inserted inline')
             .argv;
 
 function readStdin() {
