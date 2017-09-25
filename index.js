@@ -1,7 +1,7 @@
 var url = require('url'),
     jsdom = require("jsdom/lib/old-api.js"),
     Europa = require('node-europa'),
-    europa = new Europa(),
+    europa = null,
     config = {};
 
 // TODO make user-configurable
@@ -31,7 +31,7 @@ function parseDOM(data) {
 
 function scrape(argv, data) {
     config.selector = argv.selector || 'body';
-
+    europa = new Europa({inline: argv.inline});
     if (data) {
         parseDOM(data);
     } else {
