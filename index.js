@@ -1,6 +1,7 @@
 var url = require('url'),
-    jsdom = require('jsdom'),
-    md = require('html-md'),
+    jsdom = require("jsdom/lib/old-api.js"),
+    Europa = require('node-europa'),
+    europa = new Europa(),
     config = {};
 
 // TODO make user-configurable
@@ -16,7 +17,7 @@ function toMarkdown(error, win) {
         console.error('ERROR: Cannot process HTML' + (config.fromURL || ''));
         console.error(error);
     } else {
-        console.log(md(toHTML(win)));
+        console.log(europa.convert(toHTML(win)));
     }
 }
 

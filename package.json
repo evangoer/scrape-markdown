@@ -25,8 +25,8 @@
   "readmeFilename": "README.md",
   "gitHead": "aa53950c4a26bd484dbee5afe9f4d55eab7d31b0",
   "dependencies": {
-    "optimist": "~0.6.0",
-    "jsdom": "~0.8.10",
-    "html-md": "~3.0.2"
+    "jsdom": "~11.2.0",
+    "node-europa": "^4.0.0",
+    "optimist": "~0.6.1"
   }
 }
